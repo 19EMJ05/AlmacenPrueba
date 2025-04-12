@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <mat-icon aria-hidden="false" fontIcon="account_circle" style="font-size: 40px; width:40px; height: 40px;"></mat-icon>
+  <h1>Usuario:{{nombre_user}} Rol:{{rol_user}}</h1>
+  <span class="espacio"></span>
+  <button mat-button [matMenuTriggerFor]="menu">Inventario</button>
+  <mat-menu #menu="matMenu">
+    @if(menuInventarioeRegistrarproducto) {<button mat-menu-item routerLink="inventario/registrarproducto">Registrar</button>}
+    @if(menuinventarioEntrada) {<button mat-menu-item routerLink="inventario/entrada">Entrada</button>}
+    @if(menuinventarioAltabaja) {<button mat-menu-item routerLink="inventario/altabaja">Alta/Baja</button>}
+    @if(menuinventarioSalida) {<button mat-menu-item routerLink="inventario/salida">Salida</button>}
+  </mat-menu>
+  @if(menuhistorial) {<button mat-button routerLink="historial">Historial</button>}
+  <button mat-icon-button (click)="salir()"><mat-icon>exit_to_app</mat-icon></button>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
+<footer>Erick Medrano</footer>

@@ -1,0 +1,32 @@
+<mat-form-field>
+  <mat-label>Buscar</mat-label>
+  <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="nombreproducto">
+    <th mat-header-cell *matHeaderCellDef> Producto </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreproducto}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="estatusproducto">
+    <th mat-header-cell *matHeaderCellDef> Estatus </th>
+    <td mat-cell *matCellDef="let element"> {{element.estatusproducto}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Opciones">
+    <th mat-header-cell *matHeaderCellDef> Opciones </th>
+    <td mat-cell *matCellDef="let element">
+      @if(element.estatusproducto==1){
+        <button mat-flat-button color="primary" (click)="altaBajaProducto(element.idproducto,element.estatusproducto)">BAJA</button>
+      }
+      @if(element.estatusproducto==0){
+        <button mat-flat-button color="primary" (click)="altaBajaProducto(element.idproducto,element.estatusproducto)">Alta</button>
+      }
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

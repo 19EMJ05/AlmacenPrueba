@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="setProducto()">
+  <mat-card-header>
+    <mat-card-title class="cardtitle">Registro de Productos</mat-card-title>
+    </mat-card-header>
+  <mat-form-field class="inputProducto">
+    <mat-label>Nombre Porducto</mat-label>
+    <input matInput formControlName="nombreproducto">
+  </mat-form-field>
+  <mat-card-actions align="end">
+    <button mat-button type="submit">Registar</button>
+  </mat-card-actions>
+</form>

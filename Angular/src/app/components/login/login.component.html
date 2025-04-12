@@ -1,0 +1,26 @@
+<div class="fondologin">
+  <mat-card class="cardLogin">
+    <mat-card-header>
+      <mat-card-title>Login </mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" (ngSubmit)="getAcces()">
+
+      <div class="contenInputLogin" >
+
+        <mat-form-field class="inputLogin">
+          <mat-label>Id Usuario</mat-label>
+          <input matInput formControlName="idusuario" (keyup)="filtrar($event)" maxlength="6">
+        </mat-form-field>
+        <mat-form-field class="inputLogin">
+          <mat-label>contraseña</mat-label>
+          <input matInput type="password" formControlName="contrasena">
+        </mat-form-field>
+
+      </div>
+      <mat-card-actions align="end" class="botonLogin" >
+        <button mat-flat-button color="primary" type="submit" >Ingresar</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
